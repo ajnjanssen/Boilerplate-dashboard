@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import { Sidebar, Menu, MenuItem, useProSidebar } from 'react-pro-sidebar';
+import { useState } from "react";
+import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -21,10 +21,12 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
   return (
     <MenuItem
       active={selected === title}
       style={{
+        // make text red
         color: colors.grey[100],
       }}
       onClick={() => setSelected(title)}
@@ -36,7 +38,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const SidebarContainer = ()=> {
+const SidebarContainer = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -44,32 +46,30 @@ const SidebarContainer = ()=> {
   const { collapseSidebar } = useProSidebar();
 
   return (
-
-      <div style={{ display: 'flex', height: '100%' }}>
-      <Sidebar backgroundColor={colors.primary[400]}>
-         <Menu iconShape="square">
+    <div style={{ display: "flex", height: "100%" }}>
+      <Sidebar backgroundColor={colors.primary[900]}>
+        <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
-          <MenuItem 
+          <MenuItem
             onClick={() => collapseSidebar()}
             style={{
               margin: "10px 0 20px 0",
               color: colors.grey[100],
             }}
           >
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
-              >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
-                </Typography>
-                <IconButton 
-                >
-                  <MenuOutlinedIcon />
-                </IconButton>
-              </Box>     
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              ml="15px"
+            >
+              <Typography variant="h3" color={colors.grey[100]}>
+                ADMINIS
+              </Typography>
+              <IconButton>
+                <MenuOutlinedIcon />
+              </IconButton>
+            </Box>
           </MenuItem>
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
@@ -177,8 +177,8 @@ const SidebarContainer = ()=> {
           </Box>
         </Menu>
       </Sidebar>
-      </div>
+    </div>
   );
-}
+};
 
-export default SidebarContainer
+export default SidebarContainer;
