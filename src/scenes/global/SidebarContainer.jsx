@@ -41,7 +41,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const SidebarContainer = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+
   const [selected, setSelected] = useState("Dashboard");
   const { collapseSidebar } = useProSidebar();
 
@@ -71,16 +71,15 @@ const SidebarContainer = () => {
               </IconButton>
             </Box>
           </MenuItem>
-
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Item
-              title="Dashboard"
-              to="/"
-              icon={<HomeOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
+          <Box>
+            <Link to="/">
+              <Item
+                title="Dashboard"
+                icon={<HomeOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
             <Typography
               variant="h6"
               color={colors.grey[100]}
@@ -88,29 +87,31 @@ const SidebarContainer = () => {
             >
               Data
             </Typography>
-            <Item
-              color={colors.redAccent[300]}
-              title="Manage Team"
-              to="/team"
-              icon={<PeopleOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Contacts Information"
-              to="/contacts"
-              icon={<ContactsOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Invoices Balances"
-              to="/invoices"
-              icon={<ReceiptOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
+            <Link to="/team">
+              <Item
+                color={colors.redAccent[300]}
+                title="Manage Team"
+                icon={<PeopleOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
+            <Link to="/contacts">
+              <Item
+                title="Contacts Information"
+                icon={<ContactsOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
+            <Link to="/invoices">
+              <Item
+                title="Invoices Balances"
+                icon={<ReceiptOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -118,27 +119,30 @@ const SidebarContainer = () => {
             >
               Pages
             </Typography>
-            <Item
-              title="Profile Form"
-              to="/form"
-              icon={<PersonOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Calendar"
-              to="/calendar"
-              icon={<CalendarTodayOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="FAQ Page"
-              to="/faq"
-              icon={<HelpOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+            <Link to="/form">
+              <Item
+                title="Profile Form"
+                icon={<PersonOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
+            <Link to="/calendar">
+              <Item
+                title="Calendar"
+                icon={<CalendarTodayOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
+            <Link to="/faq">
+              <Item
+                title="FAQ Page"
+                icon={<HelpOutlineOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -146,34 +150,38 @@ const SidebarContainer = () => {
             >
               Charts
             </Typography>
-            <Item
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pie Chart"
-              to="/pie"
-              icon={<PieChartOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Line Chart"
-              to="/line"
-              icon={<TimelineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Geography Chart"
-              to="/geography"
-              icon={<MapOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+            <Link to="/bar">
+              <Item
+                title="Bar Chart"
+                icon={<BarChartOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
+            <Link to="/pie">
+              <Item
+                title="Pie Chart"
+                icon={<PieChartOutlineOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
+            <Link to="/line">
+              <Item
+                title="Line Chart"
+                icon={<TimelineOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
+            <Link to="/geography">
+              <Item
+                title="Geography Chart"
+                icon={<MapOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </Link>
           </Box>
         </Menu>
       </Sidebar>
