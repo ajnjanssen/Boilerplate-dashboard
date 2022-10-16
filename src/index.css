@@ -30,3 +30,8 @@ body,
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.sidebarWrapper{
+  position: absolute;
+  height:97vh !important;
+}
