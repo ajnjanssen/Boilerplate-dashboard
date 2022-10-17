@@ -26,8 +26,8 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        // make text red
         color: colors.grey[100],
+        // backgroundColor: colors.primary[400],
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -41,20 +41,18 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const SidebarContainer = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const [selected, setSelected] = useState("Dashboard");
   const { collapseSidebar } = useProSidebar();
 
   return (
     <div style={{ display: "flex", height: "100%" }}>
-      <Sidebar backgroundColor={colors.primary[900]}>
+      <Sidebar backgroundColor={colors.primary[400]}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => collapseSidebar()}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.grey[100],
             }}
           >
             <Box
@@ -74,6 +72,7 @@ const SidebarContainer = () => {
           <Box>
             <Link to="/">
               <Item
+                className="sidebar-item-test"
                 title="Dashboard"
                 icon={<HomeOutlinedIcon />}
                 selected={selected}
@@ -89,7 +88,6 @@ const SidebarContainer = () => {
             </Typography>
             <Link to="/team">
               <Item
-                color={colors.redAccent[300]}
                 title="Manage Team"
                 icon={<PeopleOutlinedIcon />}
                 selected={selected}
